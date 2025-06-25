@@ -6,33 +6,14 @@ export function Logo({ className }: { className?: string }) {
       <svg
         width="32"
         height="32"
-        viewBox="0 0 32 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
         className="text-primary"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <rect width="32" height="32" rx="8" fill="currentColor" />
         <path
-          d="M16 7L23 12V22L16 27L9 22V12L16 7Z"
-          stroke="hsl(var(--primary-foreground))"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M9 12L16 17L23 12"
-          stroke="hsl(var(--primary-foreground))"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M16 17V27"
-          stroke="hsl(var(--primary-foreground))"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+          fill="currentColor"
+          d="M50 5L10 30V70L50 95L90 70V30L50 5ZM50 15L80 32.5V67.5L50 85L20 67.5V32.5L50 15Z M45 35H55V65H45V35Z M25 40H35V60H25V40Z M65 40H75V60H65V40Z"
+        ></path>
       </svg>
       <span className="text-xl font-bold text-foreground">OneArch</span>
     </div>
