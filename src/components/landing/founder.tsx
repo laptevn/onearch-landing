@@ -19,7 +19,7 @@ export default function Founder() {
               alt="Nick Laptev, Founder of OneArch"
               width={300}
               height={300}
-              className="h-60 w-60 rounded-full shadow-2xl lg:h-72 lg:w-72"
+              className="h-60 w-60 rounded-full object-cover shadow-2xl lg:h-72 lg:w-72"
               data-ai-hint="man portrait"
             />
           </div>
