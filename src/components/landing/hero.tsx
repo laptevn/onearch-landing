@@ -16,7 +16,7 @@ export default function Hero() {
               construction, OneArch provides the tools you need to create
               stunning architectural projects.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="mt-8 flex gap-4 justify-center lg:justify-start">
               <Button size="lg" asChild>
                 <Link href="https://app.theone.archi/" target="_blank" rel="noopener noreferrer">Try the Free MVP</Link>
               </Button>
