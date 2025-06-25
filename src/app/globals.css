@@ -8,19 +8,19 @@ html {
 
 @layer base {
   :root {
-    --background: 60 14% 96%; /* #F4F4F2 */
+    --background: 60 14% 96%;
     --foreground: 20 14% 4%;
     --card: 60 14% 96%;
     --card-foreground: 20 14% 4%;
     --popover: 60 14% 96%;
     --popover-foreground: 20 14% 4%;
-    --primary: 190 31% 41%; /* #468189 */
+    --primary: 190 31% 41%;
     --primary-foreground: 60 14% 96%;
     --secondary: 190 15% 90%;
     --secondary-foreground: 190 31% 41%;
     --muted: 190 15% 94%;
     --muted-foreground: 20 14% 40%;
-    --accent: 83 27% 50%; /* #89A358 */
+    --accent: 83 27% 50%;
     --accent-foreground: 60 14% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -61,9 +61,7 @@ html {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
@@ -76,9 +74,8 @@ html {
       linear-gradient(to right, hsl(var(--border)) 0.5px, transparent 0.5px);
     background-size: 30px 30px;
   }
-}
 
-/* Hide Next.js dev toolbar */
-iframe[id^="__next_dev"] {
+  iframe[id^="__next_dev"] {
     display: none !important;
+  }
 }
