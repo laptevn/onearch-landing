@@ -34,7 +34,7 @@ export function Logo({ className }: { className?: string }) {
           strokeLinejoin="round"
         />
       </svg>
-      <span className="text-xl font-bold text-foreground">OnePlace</span>
+      <span className="text-xl font-bold text-foreground">OneArch</span>
     </div>
   );
 }

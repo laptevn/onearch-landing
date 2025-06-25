@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    quote: "OnePlace has revolutionized how our firm collaborates. The real-time feedback and version control are game-changers for our projects.",
+    quote: "OneArch has revolutionized how our firm collaborates. The real-time feedback and version control are game-changers for our projects.",
     name: "Sarah Chen",
     title: "Principal Architect, Innovate Arch.",
     avatar: "https://placehold.co/40x40.png",
@@ -17,7 +17,7 @@ const testimonials = [
     aiHint: "man designer",
   },
   {
-    quote: "From cloud storage to client presentations, OnePlace handles it all. It has become an indispensable tool for my daily workflow.",
+    quote: "From cloud storage to client presentations, OneArch handles it all. It has become an indispensable tool for my daily workflow.",
     name: "Emily Rodriguez",
     title: "Freelance Architect",
     avatar: "https://placehold.co/40x40.png",
@@ -34,7 +34,7 @@ export default function Testimonials() {
             Trusted by Professionals
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            See what our users have to say about their experience with OnePlace.
+            See what our users have to say about their experience with OneArch.
           </p>
         </div>
         <div className="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3">

@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: "OnePlace Landing",
-  description: "The one place for all your architectural needs. Streamline your design and collaboration process.",
+  title: "OneArch",
+  description: "OneArch is the one place for all your architectural needs. Streamline your design and collaboration process.",
 };
 
 export default function RootLayout({

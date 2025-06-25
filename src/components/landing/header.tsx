@@ -28,11 +28,6 @@ export default function Header() {
           </nav>
         </div>
 
-        <div className="hidden items-center gap-4 md:flex">
-          <Button variant="ghost">Sign In</Button>
-          <Button>Get Started</Button>
-        </div>
-
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -55,10 +50,6 @@ export default function Header() {
                     </a>
                   ))}
                 </nav>
-                <div className="flex flex-col gap-4">
-                  <Button variant="ghost">Sign In</Button>
-                  <Button>Get Started</Button>
-                </div>
               </div>
             </SheetContent>
           </Sheet>

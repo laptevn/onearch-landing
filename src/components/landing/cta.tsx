@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Cta() {
   return (
@@ -9,11 +10,11 @@ export default function Cta() {
         </h2>
         <p className="mt-4 text-lg text-muted-foreground">
           Join thousands of architects and designers who are building better,
-          faster, with OnePlace.
+          faster, with OneArch.
         </p>
         <div className="mt-8 flex justify-center">
-          <Button size="lg">
-            Start Your Free Trial
+          <Button size="lg" asChild>
+            <Link href="https://app.theone.archi/" target="_blank" rel="noopener noreferrer">Try the Free MVP</Link>
           </Button>
         </div>
       </div>
