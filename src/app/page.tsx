@@ -3,6 +3,7 @@ import Hero from "@/components/landing/hero";
 import Features from "@/components/landing/features";
 import MainFeatures from "@/components/landing/main-features";
 import Benefits from "@/components/landing/benefits";
+import DemoVideo from "@/components/landing/demo-video";
 import Founder from "@/components/landing/founder";
 import Faq from "@/components/landing/faq";
 import Cta from "@/components/landing/cta";
@@ -19,6 +20,7 @@ export default function Home() {
         <Features />
         <MainFeatures />
         <Benefits />
+        <DemoVideo />
         <Founder />
         <Faq />
         <Cta />
