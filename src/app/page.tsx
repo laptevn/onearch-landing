@@ -6,7 +6,8 @@ import Benefits from "@/components/landing/benefits";
 import Founder from "@/components/landing/founder";
 import Faq from "@/components/landing/faq";
 import Cta from "@/components/landing/cta";
-import Footer from "@/components/landing/footer";
+
+export const dynamic = 'force-static';
 
 export default function Home() {
   return (
