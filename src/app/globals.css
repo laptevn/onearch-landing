@@ -75,7 +75,7 @@ html {
     background-size: 30px 30px;
   }
 
-  iframe[id^="__next_dev"] {
+  next-dev-tool {
     display: none !important;
   }
 }
