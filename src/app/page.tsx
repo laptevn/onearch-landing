@@ -4,6 +4,7 @@ import Features from "@/components/landing/features";
 import MainFeatures from "@/components/landing/main-features";
 import Benefits from "@/components/landing/benefits";
 import Founder from "@/components/landing/founder";
+import Faq from "@/components/landing/faq";
 import Cta from "@/components/landing/cta";
 import Footer from "@/components/landing/footer";
 
@@ -17,6 +18,7 @@ export default function Home() {
         <MainFeatures />
         <Benefits />
         <Founder />
+        <Faq />
         <Cta />
       </main>
       <Footer />
