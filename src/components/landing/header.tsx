@@ -5,7 +5,7 @@ import { Menu } from "lucide-react";
 
 const navLinks = [
   { href: "#main-features", label: "Features" },
-  { href: "#cta", label: "Contact" },
+  { href: "mailto:nickolay.laptev@gmail.com", label: "Contact" },
 ];
 
 export default function Header() {
