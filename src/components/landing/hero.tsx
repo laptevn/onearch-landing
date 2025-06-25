@@ -29,7 +29,7 @@ export default function Hero() {
               width={600}
               height={400}
               className="rounded-lg shadow-2xl mx-auto"
-              data-ai-hint="modern architecture"
+              data-ai-hint="digital architecture"
             />
           </div>
         </div>

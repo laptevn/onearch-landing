@@ -34,7 +34,7 @@ export default function MainFeatures() {
               width={600}
               height={400}
               className="rounded-lg shadow-2xl mx-auto"
-              data-ai-hint="organized files dashboard"
+              data-ai-hint="organized dashboard"
             />
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function MainFeatures() {
               width={600}
               height={400}
               className="rounded-lg shadow-2xl mx-auto"
-              data-ai-hint="ai robot chat interface"
+              data-ai-hint="AI assistant"
             />
           </div>
         </div>
