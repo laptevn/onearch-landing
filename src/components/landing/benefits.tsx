@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { FileCheck, History, ListSteps, BrainCircuit } from "lucide-react";
+import { FileCheck, History, List, BrainCircuit } from "lucide-react";
 
 const benefits = [
   {
@@ -13,7 +13,7 @@ const benefits = [
     description: "Easily track the history of every change and decision, providing full transparency and context.",
   },
   {
-    icon: <ListSteps className="w-8 h-8 text-primary" />,
+    icon: <List className="w-8 h-8 text-primary" />,
     title: "Step-by-Step Guidance",
     description: "Our guided process helps you build out your architecture from requirements to final decisions.",
   },
