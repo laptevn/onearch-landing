@@ -29,7 +29,7 @@ export default function MainFeatures() {
           </div>
           <div>
             <Image
-              src="https://placehold.co/600x400.png"
+              src="/feature-artifacts.png"
               alt="Centralized architecture artifacts"
               width={600}
               height={400}
@@ -56,7 +56,7 @@ export default function MainFeatures() {
           </div>
           <div>
             <Image
-              src="https://placehold.co/600x400.png"
+              src="/feature-ai.png"
               alt="AI Assistant providing feedback"
               width={600}
               height={400}

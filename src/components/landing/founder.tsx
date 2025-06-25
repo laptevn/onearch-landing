@@ -15,7 +15,7 @@ export default function Founder() {
           </div>
           <div className="flex justify-center lg:justify-end">
             <Image
-              src="https://placehold.co/300x300.png"
+              src="/founder.png"
               alt="Nick Laptev, Founder of OneArch"
               width={300}
               height={300}
