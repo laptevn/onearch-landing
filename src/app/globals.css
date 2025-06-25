@@ -77,3 +77,8 @@ html {
     background-size: 30px 30px;
   }
 }
+
+/* Hide Next.js dev toolbar */
+iframe[id^="__next_dev"] {
+    display: none !important;
+}
