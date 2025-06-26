@@ -12,11 +12,21 @@ export default function Hero() {
               OneArch
             </h1>
             <p className="mt-4 text-xl text-muted-foreground">
-              The one place for all your architectural needs - with AI-powered assistance
+              The one place for all your architectural needs - with AI-powered
+              assistance
             </p>
             <div className="mt-8 flex gap-4 justify-center lg:justify-start">
               <Button size="lg" asChild>
-                <Link href="https://app.theone.archi/" target="_blank" rel="noopener noreferrer">Try the Free MVP</Link>
+                <Link
+                  href="https://app.theone.archi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Try it Free
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="#demo">Watch Demo</Link>
               </Button>
             </div>
           </div>

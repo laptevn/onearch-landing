@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 
@@ -32,7 +38,13 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <Button asChild className="hidden md:flex">
-            <Link href="https://app.theone.archi/" target="_blank" rel="noopener noreferrer">Try the Free MVP</Link>
+            <Link
+              href="https://app.theone.archi/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Try it Free
+            </Link>
           </Button>
 
           <div className="md:hidden">
@@ -63,7 +75,13 @@ export default function Header() {
                     </nav>
                   </div>
                   <Button className="w-full" asChild>
-                      <Link href="https://app.theone.archi/" target="_blank" rel="noopener noreferrer">Try the Free MVP</Link>
+                    <Link
+                      href="https://app.theone.archi/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Try it Free
+                    </Link>
                   </Button>
                 </div>
               </SheetContent>
