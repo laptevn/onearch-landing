@@ -6,6 +6,8 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "#main-features", label: "Features" },
+  { href: "#demo", label: "Demo" },
+  { href: "#faq", label: "FAQ" },
   { href: "mailto:nickolay.laptev@gmail.com", label: "Contact" },
 ];
 
