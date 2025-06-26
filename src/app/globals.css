@@ -33,6 +33,7 @@ html {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --grid: 190 15% 85%;
   }
 
   .dark {
@@ -60,6 +61,7 @@ html {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --grid: 190 15% 15%;
   }
 
   * {
@@ -70,8 +72,8 @@ html {
     font-feature-settings: "rlig" 1, "calt" 1;
     background-color: hsl(var(--background));
     background-image:
-      linear-gradient(hsl(var(--border)) 0.5px, transparent 0.5px),
-      linear-gradient(to right, hsl(var(--border)) 0.5px, transparent 0.5px);
+      linear-gradient(hsl(var(--grid)) 1px, transparent 1px),
+      linear-gradient(to right, hsl(var(--grid)) 1px, transparent 1px);
     background-size: 30px 30px;
   }
 }
