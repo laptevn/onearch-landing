@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "OneArch",
-  description: "OneArch is the one place for all your architectural needs. Streamline your design and collaboration process.",
+  description: "OneArch is the one place for all your architectural needs - with AI-powered assistance. Streamline your design and collaboration process.",
 };
 
 export default function RootLayout({

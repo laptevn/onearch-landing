@@ -8,11 +8,11 @@ export default function Hero() {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               OneArch
             </h1>
             <p className="mt-4 text-xl text-muted-foreground">
-              The One Place for All Your Architectural Needs
+              The one place for all your architectural needs - with AI-powered assistance
             </p>
             <p className="mt-6 text-lg text-muted-foreground">
               Streamline your design and collaboration process. From concept to

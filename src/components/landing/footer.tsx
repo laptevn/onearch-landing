@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Logo />
             <p className="mt-4 text-muted-foreground">
-              The one place for all your architectural needs.
+              The one place for all your architectural needs - with AI-powered assistance.
             </p>
           </div>
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
