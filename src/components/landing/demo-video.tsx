@@ -7,7 +7,7 @@ export default function DemoVideo() {
             See It in Action
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Watch how OneArch solves common problems in under 2 minutes.
+            Watch how OneArch solves common problems in under 1 minute.
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
