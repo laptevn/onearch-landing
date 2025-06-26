@@ -11,16 +11,22 @@ export default function DemoVideo() {
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
-          <div className="aspect-video overflow-hidden rounded-lg shadow-2xl">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/Jgom28pNXfA"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
+          <div className="overflow-hidden rounded-lg shadow-2xl">
+            <div
+              className="relative h-0 w-full"
+              style={{ paddingBottom: "calc(54.02777777777777% + 41px)" }}
+            >
+              <iframe
+                src="https://demo.arcade.software/LdwyDGw5z4HV2PUPxV9z?embed&embed_mobile=inline&embed_desktop=inline&show_copy_link=true"
+                title="Review Project Requirements and Decisions with AI Insights"
+                frameBorder="0"
+                loading="lazy"
+                allow="clipboard-write"
+                allowFullScreen
+                className="absolute left-0 top-0 h-full w-full"
+                style={{ colorScheme: "light" }}
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
