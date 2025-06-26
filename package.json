@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "deploy": "gh-pages -d out --dotfiles"
+    "deploy": "gh-pages -d out --dotfiles",
+    "deploy-ci": "gh-pages -d out --dotfiles -u \"github-actions[bot] <github-actions[bot]@users.noreply.github.com>\" -r https://x-access-token:${GITHUB_TOKEN}@github.com/laptevn/onearch-landing.git"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.8.0",

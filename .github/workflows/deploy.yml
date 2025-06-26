@@ -30,7 +30,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Run deploy
-        run: npm run deploy
+        run: npm run deploy-ci
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
