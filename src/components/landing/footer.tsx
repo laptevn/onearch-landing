@@ -1,4 +1,5 @@
 import { Logo } from "@/components/ui/logo";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -19,6 +20,16 @@ export default function Footer() {
                 <li><a href="#demo" className="text-muted-foreground hover:text-primary">Demo</a></li>
                 <li><a href="#faq" className="text-muted-foreground hover:text-primary">FAQ</a></li>
                 <li><a href="mailto:nickolay.laptev@gmail.com" className="text-muted-foreground hover:text-primary">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground">Legal</h3>
+              <ul className="mt-4 space-y-2">
+                <li>
+                  <Link href="/privacy" className="text-muted-foreground hover:text-primary">
+                    Privacy Policy
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
