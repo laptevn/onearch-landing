@@ -15,10 +15,6 @@ const faqs = [
     answer: "Unlike general-purpose documentation tools, OneArch is purpose-built for software architecture. It structures architectural decisions (ADRs), tracks changes, verifies requirements with AI, and guides you through a concrete architecture process.",
   },
   {
-    question: "How does the AI assistant help?",
-    answer: "The AI assistant reviews your requirements and ADRs, detects inconsistencies, highlights unclear parts, and suggests improvements. It helps reduce errors and increase clarity before implementation begins.",
-  },
-  {
     question: "Can I use OneArch with my existing architecture tools?",
     answer: "OneArch is designed to be a highly efficient, single place for all your architectural artifacts. To help you integrate with existing processes, it supports exporting to various formats.",
   },
