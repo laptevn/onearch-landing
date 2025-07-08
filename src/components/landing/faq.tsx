@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "Can I use OneArch with my existing architecture tools?",
-    answer: "Right now, OneArch works as a standalone system.",
+    answer: "OneArch is designed to be a highly efficient, single place for all your architectural artifacts. To help you integrate with existing processes, it supports exporting to various formats.",
   },
   {
     question: "Is my data safe and private?",
