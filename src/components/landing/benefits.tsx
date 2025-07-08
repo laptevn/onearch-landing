@@ -9,7 +9,7 @@ import { FileCheck, BrainCircuit, Share, ShieldCheck } from "lucide-react";
 const benefits = [
   {
     icon: <FileCheck className="w-8 h-8 text-primary" />,
-    title: "Consistent ADR Format",
+    title: "Context-Aware Decision Making",
     description:
       "Standardize your decisions with a proven Architectural Decision Record format. With context-aware decision making, requirements and other ADRs are displayed in-place while you work.",
   },
