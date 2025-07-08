@@ -4,7 +4,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { FileCheck, BrainCircuit, Share, ShieldCheck } from "lucide-react";
+import { FileCheck, Share, ShieldCheck, ListChecks } from "lucide-react";
 
 const benefits = [
   {
@@ -14,21 +14,10 @@ const benefits = [
       "Standardize your decisions with a proven Architectural Decision Record format. With context-aware decision making, requirements and other ADRs are displayed in-place while you work.",
   },
   {
-    icon: <BrainCircuit className="w-8 h-8 text-primary" />,
-    title: "AI-Powered Assistant",
-    description: (
-      <>
-        Get objective reviews of your deliverables. Our AI assistant also helps
-        by:
-        <ul className="list-disc pl-5 mt-2 space-y-1">
-          <li>Identifying requirements from business needs.</li>
-          <li>
-            Identifying non-functional requirements from functional ones.
-          </li>
-          <li>Generating solution summaries.</li>
-        </ul>
-      </>
-    ),
+    icon: <ListChecks className="w-8 h-8 text-primary" />,
+    title: "Smart Requirement Management",
+    description:
+      "OneArch uses smart techniques to improve the quality of requirements and speed up the process of requirements gathering.",
   },
   {
     icon: <Share className="w-8 h-8 text-primary" />,
