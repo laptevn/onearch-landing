@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "Is OneArch free to use?",
-    answer: "Yes, the MVP is currently free. We’ll offer paid plans with collaboration and export features later on.",
+    answer: "Yes, the MVP is currently free.",
   },
 ]
 
