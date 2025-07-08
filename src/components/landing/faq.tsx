@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "What makes OneArch different from tools like Confluence or Notion?",
-    answer: "Unlike general-purpose documentation tools, OneArch is purpose-built for software architecture. It structures architectural decisions (ADRs), tracks changes, verifies requirements with AI, and guides you through a concrete architecture process.",
+    answer: "Unlike general-purpose documentation tools, OneArch is purpose-built for software architecture. This specialization is what makes it so productive: it guides you through a concrete architectural process with structured tooling and AI assistance, saving you from wrestling with generic templates and scattered information.",
   },
   {
     question: "Can I use OneArch with my existing architecture tools?",
