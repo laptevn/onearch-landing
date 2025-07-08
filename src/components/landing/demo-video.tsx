@@ -17,8 +17,8 @@ export default function DemoVideo() {
               style={{ paddingBottom: "calc(54.02777777777777% + 41px)" }}
             >
               <iframe
-                src="https://demo.arcade.software/LdwyDGw5z4HV2PUPxV9z?embed&embed_mobile=inline&embed_desktop=inline&show_copy_link=true"
-                title="Review Project Requirements and Decisions with AI Insights"
+                src="https://demo.arcade.software/yguwCYKtDgfbFQCYaQe6?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
+                title="OneArch"
                 frameBorder="0"
                 loading="lazy"
                 allow="clipboard-write"
