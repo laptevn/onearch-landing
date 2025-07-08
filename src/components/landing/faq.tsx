@@ -27,10 +27,6 @@ const faqs = [
     answer: "Yes. Your data is securely stored and isolated. No one can access your artifacts without your permission. We're committed to building enterprise-grade security from day one.",
   },
   {
-    question: "What does the MVP include?",
-    answer: "The MVP includes two core features: collecting requirements and ADRs, and AI-powered enhancement of those artifacts. More features are coming soon.",
-  },
-  {
     question: "Is OneArch free to use?",
     answer: "Yes, the MVP is currently free. We’ll offer paid plans with collaboration and export features later on.",
   },
