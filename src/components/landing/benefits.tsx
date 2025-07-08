@@ -15,7 +15,7 @@ const benefits = [
   },
   {
     icon: <BrainCircuit className="w-8 h-8 text-primary" />,
-    title: "AI-Powered Review",
+    title: "AI-Powered Assistant",
     description: (
       <>
         Get objective reviews of your deliverables. Our AI assistant also helps
