@@ -2,6 +2,12 @@
 import { BrainCircuit, Check, ClipboardX, Compass, FileCheck, FileText, History, ListChecks, MessageSquare, Puzzle, Share, ShieldCheck, Sigma, Waypoints } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import PromoPopup from "@/components/share/promo-popup";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Business Analysis Techniques for High-Quality Requirements",
+  description: "A toolkit of 9 essential business analysis techniques to help you clarify goals, define scope, and write high-quality, testable requirements.",
+};
 
 const techniques = [
     {
