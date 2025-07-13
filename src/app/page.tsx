@@ -6,7 +6,6 @@ import Benefits from "@/components/landing/benefits";
 import DemoVideo from "@/components/landing/demo-video";
 import Founder from "@/components/landing/founder";
 import Faq from "@/components/landing/faq";
-import Learning from "@/components/landing/learning";
 import Cta from "@/components/landing/cta";
 import Footer from "@/components/landing/footer";
 
@@ -24,7 +23,6 @@ export default function Home() {
         <DemoVideo />
         <Founder />
         <Faq />
-        <Learning />
         <Cta />
       </main>
       <Footer />

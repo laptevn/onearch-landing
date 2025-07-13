@@ -22,6 +22,16 @@ export default function Footer() {
                 <li><a href="mailto:nickolay.laptev@gmail.com" className="text-muted-foreground hover:text-primary">Contact</a></li>
               </ul>
             </div>
+            <div>
+              <h3 className="font-semibold text-foreground">Learning Hub</h3>
+              <ul className="mt-4 space-y-2">
+                <li>
+                  <Link href="/share/ba-techniques" className="text-muted-foreground hover:text-primary">
+                    Business Analysis Techniques
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
