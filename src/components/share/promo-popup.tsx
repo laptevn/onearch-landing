@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
+  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
@@ -35,7 +36,7 @@ export default function PromoPopup() {
             Unlock Your Full Potential with OneArch
           </AlertDialogTitle>
           <AlertDialogDescription>
-            You're viewing a shared resource. OneArch is the platform that helps architects create and manage content like this, but with powerful AI assistance, structured templates, and collaborative tools.
+            You're viewing a shared resource that highlights techniques used within the OneArch platform. OneArch helps architects apply this knowledge with powerful AI assistance, structured templates, and collaborative tools.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter className="flex-col sm:flex-col sm:justify-center sm:space-x-0 gap-2">
