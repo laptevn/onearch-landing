@@ -3,6 +3,7 @@ import { BrainCircuit, Bot, CheckCircle, Code, MessageSquare, Search, ShieldAler
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import PromoPopup from "@/components/share/promo-popup";
 import type { Metadata } from "next";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "AI Assistant for Architects",
@@ -83,7 +84,9 @@ export default function AiAssistantPage() {
                 </div>
                 <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2">
                     {points.map((point, index) => (
-                        <Card key={index} className="bg-card/50 border-0 shadow-lg flex flex-col">
+                        <Card key={index} className={cn("bg-card/50 border-0 shadow-lg flex flex-col", {
+                          "lg:col-span-2 border-2 border-primary shadow-primary/20": !point.canDelegate,
+                        })}>
                             <CardHeader>
                                 <div className="flex items-start gap-4">
                                     {point.icon}
