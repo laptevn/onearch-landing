@@ -30,6 +30,11 @@ export default function Footer() {
                     Business Analysis Techniques
                   </Link>
                 </li>
+                <li>
+                  <Link href="/share/ai-assistant-for-architects" className="text-muted-foreground hover:text-primary">
+                    AI Assistant for Architects
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
