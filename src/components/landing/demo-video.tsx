@@ -69,12 +69,12 @@ export default function DemoVideo() {
           </p>
         </div>
         <Tabs defaultValue="wizard" className="w-full">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-5 h-auto">
+          <TabsList className="grid w-full grid-cols-1 md:grid-cols-5 h-auto bg-muted/50 rounded-lg p-1">
             {demos.map((demo) => (
               <TabsTrigger
                 key={demo.value}
                 value={demo.value}
-                className="whitespace-normal h-full py-2"
+                className="whitespace-normal h-full py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md rounded-md transition-all"
               >
                 {demo.title}
               </TabsTrigger>
