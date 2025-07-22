@@ -1,3 +1,4 @@
+
 import {
   Tabs,
   TabsContent,
@@ -19,19 +20,10 @@ const demos = [
     arcadeTitle: "Gather Requirements for a Project Using AI Assistance",
   },
   {
-    title: "Make Architectural Decisions as ADRs",
-    value: "adrs",
-    src: "",
-  },
-  {
-    title: "Design a Diagram",
-    value: "diagram",
-    src: "",
-  },
-  {
-    title: "Finalize Work for a Project",
-    value: "finalize",
-    src: "",
+    title: "From Decision to Delivery: Full Architecture Flow",
+    value: "full-flow",
+    src: "https://demo.arcade.software/o4Ppq3cfvyG7be0ZspyA?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true",
+    arcadeTitle: "Export Project Details to Word, HTML, or Confluence",
   },
 ];
 
@@ -70,7 +62,7 @@ export default function DemoVideo() {
           </p>
         </div>
         <Tabs defaultValue="wizard" className="w-full">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-5 h-auto bg-muted/50 rounded-lg p-1">
+          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto bg-muted/50 rounded-lg p-1">
             {demos.map((demo) => (
               <TabsTrigger
                 key={demo.value}
