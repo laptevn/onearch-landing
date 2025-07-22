@@ -4,7 +4,14 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { FileCheck, Share, ShieldCheck, ListChecks, PencilRuler } from "lucide-react";
+import {
+  FileCheck,
+  Share,
+  ShieldCheck,
+  ListChecks,
+  PencilRuler,
+  ListOrdered,
+} from "lucide-react";
 
 const benefits = [
   {
@@ -18,6 +25,12 @@ const benefits = [
     title: "Smart Requirement Management",
     description:
       "OneArch uses smart techniques to improve the quality of requirements and speed up the process of requirements gathering.",
+  },
+  {
+    icon: <ListOrdered className="w-8 h-8 text-primary" />,
+    title: "Step-by-Step Project Wizard",
+    description:
+      "Simplify onboarding and guide junior architects with our step-by-step project creation wizard. Ensures a structured process from start to finish.",
   },
   {
     icon: <PencilRuler className="w-8 h-8 text-primary" />,
@@ -52,7 +65,7 @@ export default function Benefits() {
             for serious architects.
           </p>
         </div>
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
             <Card
               key={index}
