@@ -15,7 +15,8 @@ const demos = [
   {
     title: "Start of a Project - From Vague Business Needs to Requirements",
     value: "requirements",
-    src: "",
+    src: "https://demo.arcade.software/CoxeXM39bZqxPB66SjoO?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true",
+    arcadeTitle: "Gather Requirements for a Project Using AI Assistance",
   },
   {
     title: "Make Architectural Decisions as ADRs",
