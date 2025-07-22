@@ -4,7 +4,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { FileCheck, Share, ShieldCheck, ListChecks } from "lucide-react";
+import { FileCheck, Share, ShieldCheck, ListChecks, PencilRuler } from "lucide-react";
 
 const benefits = [
   {
@@ -18,6 +18,12 @@ const benefits = [
     title: "Smart Requirement Management",
     description:
       "OneArch uses smart techniques to improve the quality of requirements and speed up the process of requirements gathering.",
+  },
+  {
+    icon: <PencilRuler className="w-8 h-8 text-primary" />,
+    title: "Built-in & Attachable Diagrams",
+    description:
+      "Draw diagrams right inside OneArch to keep everything in one place, or attach files from your favorite diagramming tools. The choice is yours.",
   },
   {
     icon: <Share className="w-8 h-8 text-primary" />,
