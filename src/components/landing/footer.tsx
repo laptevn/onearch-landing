@@ -1,3 +1,4 @@
+
 import { Logo } from "@/components/ui/logo";
 import Link from "next/link";
 
@@ -12,7 +13,7 @@ export default function Footer() {
               The one place for all your architectural needs - with AI-powered assistance.
             </p>
           </div>
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
             <div>
               <h3 className="font-semibold text-foreground">Product</h3>
               <ul className="mt-4 space-y-2">
@@ -33,6 +34,16 @@ export default function Footer() {
                 <li>
                   <Link href="/share/ai-assistant-for-architects" className="text-muted-foreground hover:text-primary">
                     AI Assistant for Architects
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground">Legal</h3>
+              <ul className="mt-4 space-y-2">
+                <li>
+                  <Link href="/licensing" className="text-muted-foreground hover:text-primary">
+                    Licensing
                   </Link>
                 </li>
               </ul>
