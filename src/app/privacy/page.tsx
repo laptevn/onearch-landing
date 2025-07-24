@@ -1,5 +1,5 @@
 
-import { Lock, Database, EyeOff, BrainCircuit, UserCheck, CheckCircle, Shield } from "lucide-react";
+import { Lock, Database, EyeOff, BrainCircuit, UserCheck, CheckCircle, Shield, Globe } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -49,6 +49,15 @@ const policyPoints = [
             "The app uses your data only to provide functionality — never for training AI, selling data, or third-party profiling.",
         ],
     },
+    {
+        icon: <Globe className="w-8 h-8 text-primary flex-shrink-0" />,
+        title: "We do not collect or track your location",
+        content: [
+            "OneArch does not perform geo-blocking, and we do not restrict access based on where you are located.",
+            "Your country of origin, residence, or political environment is not relevant to your right to use the product.",
+            "We believe architectural work should be accessible regardless of borders or politics.",
+        ],
+    }
 ];
 
 export default function PrivacyPolicyPage() {
