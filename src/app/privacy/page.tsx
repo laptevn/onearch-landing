@@ -39,7 +39,7 @@ const policyPoints = [
         title: "Use of AI (OpenAI)",
         content: [
             "To enable smart assistance (e.g. requirement extraction, AI summaries), your input may be shared with OpenAI's API.",
-            "This data is sent securely and anonymized — no user identity or project-level metadata is included.",
+            "This data is sent securely and anonymized.",
         ],
     },
     {
