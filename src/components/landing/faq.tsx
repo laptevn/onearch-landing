@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "Is my data safe and private?",
-    answer: "Yes. Your data is securely stored and isolated. No one can access your artifacts without your permission. We're committed to building enterprise-grade security from day one.",
+    answer: <>Yes. Your data is securely stored and isolated. No one can access your artifacts without your permission. We're committed to building enterprise-grade security from day one. For more details, please see our <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.</>,
   },
   {
     question: "Is OneArch free to use?",
