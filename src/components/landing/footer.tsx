@@ -46,6 +46,11 @@ export default function Footer() {
                     Licensing
                   </Link>
                 </li>
+                <li>
+                  <Link href="/privacy" className="text-muted-foreground hover:text-primary">
+                    Privacy Policy
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
