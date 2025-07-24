@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import Link from "next/link";
 
 const faqs = [
   {
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     question: "Is OneArch free to use?",
-    answer: "Yes, the MVP is currently free.",
+    answer: <>Yes, the MVP is currently free. For more details, please see our <Link href="/licensing" className="text-primary hover:underline">Licensing page</Link>.</>,
   },
 ]
 
