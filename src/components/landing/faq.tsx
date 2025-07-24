@@ -27,6 +27,10 @@ const faqs = [
     question: "Is OneArch free to use?",
     answer: <>Yes, the MVP is currently free. For more details, please see our <Link href="/licensing" className="text-primary hover:underline">Licensing page</Link>.</>,
   },
+  {
+    question: "I'm from EU/China/Russia. Will I be blocked from using OneArch?",
+    answer: <>No. OneArch does not block access based on location, and we do not track your geographic region. See details in our <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.</>,
+  },
 ]
 
 export default function Faq() {
