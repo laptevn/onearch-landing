@@ -1,7 +1,6 @@
 
-import { Lock, Database, EyeOff, BrainCircuit, UserCheck, CheckCircle, Mail } from "lucide-react";
+import { Lock, Database, EyeOff, BrainCircuit, UserCheck, CheckCircle, Shield } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy - OneArch",
@@ -81,6 +80,20 @@ export default function PrivacyPolicyPage() {
                     </div>
                 </div>
             ))}
+
+            <div className="p-8 rounded-lg border bg-card/50 shadow-lg">
+                <div className="flex items-start gap-4">
+                    <Shield className="w-8 h-8 text-primary flex-shrink-0" />
+                    <div>
+                        <h2 className="text-2xl font-semibold text-foreground mb-4">Note from the creator</h2>
+                        <div className="space-y-3 text-lg text-muted-foreground">
+                            <p>I’ve worked in software security for 17+ years.</p>
+                            <p>OneArch was built from day one with privacy, encryption, and isolation in mind — because I’ve seen firsthand what happens when it’s not.</p>
+                            <p>If you ever have concerns or questions, I’ll personally respond.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div className="p-8 rounded-lg border bg-green-950/20 border-green-500/30 shadow-lg">
                  <div className="flex items-start gap-4">
