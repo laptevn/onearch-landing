@@ -62,9 +62,17 @@ export default function LicensingPage() {
                     <Lightbulb className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                         <h2 className="text-2xl font-semibold text-foreground mb-2">Intellectual Property</h2>
-                        <p className="text-lg text-muted-foreground">
-                        All features, designs, workflows, and AI integrations within OneArch are the intellectual property of the creator (Nick/Nikolai Laptev) and are protected accordingly. Usage is granted under the terms of access, and does not imply any ownership of the platform or its underlying systems.
-                        </p>
+                        <div className="text-lg text-muted-foreground space-y-4">
+                          <p>
+                            OneArch is the sole intellectual property of its creator (Nick/Nikolai Laptev).
+                          </p>
+                          <p>
+                            Using the product during early access does not grant rights to reuse, reproduce, or redistribute any part of its interface, logic, or design.
+                          </p>
+                          <p>
+                            You are welcome to explore and benefit from it — but the product itself remains protected.
+                          </p>
+                        </div>
                     </div>
                 </div>
             </div>
