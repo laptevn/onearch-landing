@@ -36,7 +36,7 @@ const policyPoints = [
     },
     {
         icon: <BrainCircuit className="w-8 h-8 text-primary flex-shrink-0" />,
-        title: "Use of AI (OpenAI)",
+        title: "Use of AI",
         content: [
             "To enable smart assistance (e.g. requirement extraction, AI summaries), your input may be shared with OpenAI's API.",
             "This data is sent securely and anonymized.",
