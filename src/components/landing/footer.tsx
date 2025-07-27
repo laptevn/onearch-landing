@@ -36,6 +36,11 @@ export default function Footer() {
                     AI Assistant for Architects
                   </Link>
                 </li>
+                <li>
+                  <Link href="/share/siri-technique" className="text-muted-foreground hover:text-primary">
+                    SIRI Technique
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
