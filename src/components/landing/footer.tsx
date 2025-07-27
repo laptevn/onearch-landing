@@ -41,6 +41,11 @@ export default function Footer() {
                     Clear and concise statements
                   </Link>
                 </li>
+                <li>
+                  <Link href="/share/decision-characteristics" className="text-muted-foreground hover:text-primary">
+                    Decision Characteristics
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
