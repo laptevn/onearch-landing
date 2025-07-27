@@ -38,7 +38,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/share/siri-technique" className="text-muted-foreground hover:text-primary">
-                    SIRI Technique
+                    Clear and concise statements
                   </Link>
                 </li>
               </ul>
