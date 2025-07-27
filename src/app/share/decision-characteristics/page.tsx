@@ -1,5 +1,5 @@
 
-import { CheckCircle, XCircle, Star, Target, FileText, Sparkles } from "lucide-react";
+import { CheckCircle, XCircle, Star, Target, FileText, Sparkles, Scale } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import PromoPopup from "@/components/share/promo-popup";
 import type { Metadata } from "next";
@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Characteristics of an Architectural Decision",
-  description: "Learn about the key characteristics of a high-quality architectural decision: it must be important, technical, decisive, and clear.",
+  description: "Learn about the key characteristics of a high-quality architectural decision: it must be important, technical, decisive, objective, and clear.",
 };
 
 const characteristics = [
@@ -31,6 +31,11 @@ const characteristics = [
         icon: <FileText className="w-8 h-8 text-primary" />,
         title: "Decisive",
         description: "It must be clear what decision is made and why. Saying “If we use X, we gain performance but increase maintenance cost; if we use Y, we lose performance but reduce maintenance cost” — is not a decision. It’s unclear what to do with that.",
+    },
+    {
+        icon: <Scale className="w-8 h-8 text-primary" />,
+        title: "Objective",
+        description: "A decision should be based on facts, not personal opinions — no matter how much experience you have.",
     },
     {
         icon: <Sparkles className="w-8 h-8 text-primary" />,
