@@ -33,9 +33,9 @@ export default function Testimonials() {
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-card/50 border-0 shadow-lg">
-              <CardContent className="p-6">
-                <blockquote className="text-lg text-muted-foreground mb-6">
+            <Card key={index} className="bg-card/50 border-0 shadow-lg flex flex-col">
+              <CardContent className="p-6 flex flex-col flex-grow">
+                <blockquote className="text-lg text-muted-foreground mb-6 flex-grow">
                   {testimonial.quote}
                 </blockquote>
                 <div className="flex items-center gap-4">
