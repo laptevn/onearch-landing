@@ -9,8 +9,7 @@ export default function Cta() {
           Ready to Transform Your Projects?
         </h2>
         <p className="mt-4 text-lg text-muted-foreground">
-          Join thousands of architects and designers who are building better,
-          faster, with OneArch.
+          Already in use on real projects - helping architects stay organized and focused
         </p>
         <div className="mt-8 flex justify-center">
           <Button size="lg" asChild>
