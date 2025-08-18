@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
@@ -31,33 +30,34 @@ export default function Testimonials() {
             Here’s what early users are saying
           </h2>
         </div>
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-2">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-card/50 border-0 shadow-lg flex flex-col">
-              <CardContent className="p-6 flex flex-col flex-grow">
-                <blockquote className="text-lg text-muted-foreground mb-6 flex-grow">
-                  {testimonial.quote}
-                </blockquote>
-                <div className="flex items-center gap-4">
-                  <Image
+            <div key={index} className="flex flex-col items-center text-center lg:flex-row lg:text-left gap-6">
+                <Image
                     src={testimonial.image}
                     alt={`${testimonial.name}`}
-                    width={56}
-                    height={56}
-                    className="h-14 w-14 rounded-full object-cover"
+                    width={88}
+                    height={88}
+                    className="h-24 w-24 rounded-full object-cover flex-shrink-0"
                     data-ai-hint={testimonial.hint}
-                  />
-                  <div>
-                    <p className="font-semibold text-foreground">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.title}
-                    </p>
-                  </div>
+                />
+                <div className="relative w-full">
+                    <div className="absolute -top-3 left-1/2 lg:left-[-12px] lg:top-8 transform -translate-x-1/2 lg:-translate-y-1/2 rotate-45 lg:-rotate-45 w-6 h-6 bg-card/50"></div>
+                    <div className="bg-card/50 p-6 rounded-lg shadow-lg relative">
+                        <blockquote className="text-lg text-muted-foreground mb-4">
+                        {testimonial.quote}
+                        </blockquote>
+                        <div>
+                            <p className="font-semibold text-foreground">
+                            {testimonial.name}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                            {testimonial.title}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </CardContent>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
