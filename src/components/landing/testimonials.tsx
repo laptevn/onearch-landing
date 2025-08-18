@@ -1,3 +1,4 @@
+"use client";
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,7 +8,7 @@ const testimonials = [
     name: "Francisco Exposito",
     title: "Application Architect, European External Action Service",
     quote:
-      "I’m impressed by how structured and easy to review the data is. The clean, distraction-free UI and AI integration make it intuitive, and the diagram feature is a great bonus. OneArch is a promising tool — simple, elegant, and clearly built with care.",
+      "I’m impressed by how structured and easy to review the data is. The clean, distraction-free UI and AI integration make it intuitive, and the diagram feature is a great bonus. OneArch is a promising tool - simple, elegant, and clearly built with care.",
     image: "/francisco.jpeg",
     hint: "man portrait",
   },
@@ -35,7 +36,7 @@ export default function Testimonials() {
             <Card key={index} className="bg-card/50 border-0 shadow-lg">
               <CardContent className="p-6">
                 <blockquote className="text-lg text-muted-foreground mb-6">
-                  "{testimonial.quote}"
+                  {testimonial.quote}
                 </blockquote>
                 <div className="flex items-center gap-4">
                   <Image
