@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -38,7 +39,7 @@ export default function Testimonials() {
                 </blockquote>
                 <div className="flex items-center gap-4">
                   <Image
-                    src={`https://placehold.co/100x100.png`}
+                    src={testimonial.image}
                     alt={`${testimonial.name}`}
                     width={56}
                     height={56}
