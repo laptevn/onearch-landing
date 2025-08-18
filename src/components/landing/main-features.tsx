@@ -46,11 +46,11 @@ export default function MainFeatures() {
               <div className="mb-4 flex items-center justify-center lg:justify-start gap-4">
                   <Bot className="w-10 h-10 text-primary" />
                   <h3 className="text-2xl font-semibold text-foreground">
-                      AI Assistant That Enhances Your Architecture
+                      AI-Powered Assistant
                   </h3>
               </div>
               <p className="mt-4 text-lg text-muted-foreground">
-               Get real-time feedback on requirements and decisions. The AI assistant reviews, suggests improvements, and ensures you're not missing critical aspects.
+               The AI assistant does more than just review your work. It actively identifies requirements from business needs, generates solution summaries, and provides real-time feedback on your architectural decisions.
               </p>
             </div>
           </div>

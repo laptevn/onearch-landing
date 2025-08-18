@@ -14,7 +14,13 @@ export default function Cta() {
         </p>
         <div className="mt-8 flex justify-center">
           <Button size="lg" asChild>
-            <Link href="https://app.theone.archi/" target="_blank" rel="noopener noreferrer">Try the Free MVP</Link>
+            <Link
+              href="https://app.theone.archi/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Try it Free
+            </Link>
           </Button>
         </div>
       </div>

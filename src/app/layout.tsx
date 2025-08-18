@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "OneArch",
-  description: "OneArch is the one place for all your architectural needs. Streamline your design and collaboration process.",
+  description: "OneArch is the one place for all your architectural needs - with AI-powered assistance. Streamline your design and collaboration process.",
 };
 
 export default function RootLayout({
@@ -23,6 +24,15 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         ></link>
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "s5mzj7tqy2");
+          `}
+        </Script>
       </head>
       <body
         className={cn(

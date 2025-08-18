@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import Link from "next/link";
 
 const faqs = [
   {
@@ -12,27 +13,23 @@ const faqs = [
   },
   {
     question: "What makes OneArch different from tools like Confluence or Notion?",
-    answer: "Unlike general-purpose documentation tools, OneArch is purpose-built for software architecture. It structures architectural decisions (ADRs), tracks changes, verifies requirements with AI, and guides you through a concrete architecture process.",
-  },
-  {
-    question: "How does the AI assistant help?",
-    answer: "The AI assistant reviews your requirements and ADRs, detects inconsistencies, highlights unclear parts, and suggests improvements. It helps reduce errors and increase clarity before implementation begins.",
+    answer: "Unlike general-purpose documentation tools, OneArch is purpose-built for software architecture. This specialization is what makes it so productive: it guides you through a concrete architectural process with structured tooling and AI assistance, saving you from wrestling with generic templates and scattered information.",
   },
   {
     question: "Can I use OneArch with my existing architecture tools?",
-    answer: "Right now, OneArch works as a standalone system.",
+    answer: "OneArch is designed to be a highly efficient, single place for all your architectural artifacts. To help you integrate with existing processes, it supports exporting to various formats.",
   },
   {
     question: "Is my data safe and private?",
-    answer: "Yes. Your data is securely stored and isolated. No one can access your artifacts without your permission. We're committed to building enterprise-grade security from day one.",
-  },
-  {
-    question: "What does the MVP include?",
-    answer: "The MVP includes two core features: collecting requirements and ADRs, and AI-powered enhancement of those artifacts. More features are coming soon.",
+    answer: <>Yes. Your data is securely stored and isolated. No one can access your artifacts without your permission. We're committed to building enterprise-grade security from day one. For more details, please see our <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.</>,
   },
   {
     question: "Is OneArch free to use?",
-    answer: "Yes, the MVP is currently free. We’ll offer paid plans with collaboration and export features later on.",
+    answer: <>Yes, the MVP is currently free. For more details, please see our <Link href="/licensing" className="text-primary hover:underline">Licensing page</Link>.</>,
+  },
+  {
+    question: "I'm from EU/China/Russia. Will I be blocked from using OneArch?",
+    answer: <>No. OneArch does not block access based on location, and we do not track your geographic region. See details in our <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.</>,
   },
 ]
 
