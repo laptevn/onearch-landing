@@ -43,7 +43,7 @@ export default function Testimonials() {
                 />
                 <div className="relative w-full">
                     <div className="absolute -top-3 left-1/2 lg:left-[-12px] lg:top-8 transform -translate-x-1/2 lg:-translate-y-1/2 rotate-45 lg:-rotate-45 w-6 h-6 bg-card/50"></div>
-                    <div className="bg-card/50 p-6 rounded-lg shadow-lg relative">
+                    <div className="bg-card/50 p-6 rounded-2xl shadow-lg relative">
                         <blockquote className="text-lg text-muted-foreground mb-4">
                         {testimonial.quote}
                         </blockquote>
