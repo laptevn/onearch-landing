@@ -9,6 +9,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "AI Assistant for Architects",
   description: "Learn which parts of software architecture work can be delegated to an AI assistant, from requirements clarification to verifying decisions.",
+  alternates: {
+    canonical: "/share/ai-assistant-for-architects",
+  },
 };
 
 const LinkComponent = ({ href, children }: { href: string, children: React.ReactNode }) => (

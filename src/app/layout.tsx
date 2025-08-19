@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
@@ -5,8 +6,12 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://theone.archi"),
   title: "AI Assistant for Software Architects | OneArch",
   description: "OneArch is the one place for all your architectural needs - with AI-powered assistance. Streamline your design and collaboration process.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({

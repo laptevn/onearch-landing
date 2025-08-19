@@ -7,6 +7,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Clear and Concise Statements with the SIRI Technique",
   description: "Learn how to express your thoughts concisely and focus on what matters using the SIRI technique: Simplify, Internalize, Repeat, Iterate.",
+  alternates: {
+    canonical: "/share/siri-technique",
+  },
 };
 
 const siriSteps = [

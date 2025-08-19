@@ -7,6 +7,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Business Analysis Techniques for High-Quality Requirements",
   description: "A toolkit of 9 essential business analysis techniques to help you clarify goals, define scope, and write high-quality, testable requirements.",
+  alternates: {
+    canonical: "/share/ba-techniques",
+  },
 };
 
 const techniques = [

@@ -8,6 +8,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Characteristics of an Architectural Decision",
   description: "Learn about the key characteristics of a high-quality architectural decision: it must be important, technical, decisive, objective, and clear.",
+  alternates: {
+    canonical: "/share/decision-characteristics",
+  },
 };
 
 const characteristics = [

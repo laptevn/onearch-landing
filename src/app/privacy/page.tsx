@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy - OneArch",
   description: "Understand how OneArch handles your data, from authentication to AI usage. We prioritize your privacy and security.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 const policyPoints = [

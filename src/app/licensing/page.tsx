@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Licensing & Terms - OneArch",
   description: "Understand the licensing terms, data access commitments, and intellectual property rights for OneArch. Your data is yours, always.",
+  alternates: {
+    canonical: "/licensing",
+  },
 };
 
 const commitmentPoints = [
