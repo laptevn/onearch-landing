@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/share/ba-techniques",
   },
+  robots: "index, follow",
 };
 
 const techniques = [

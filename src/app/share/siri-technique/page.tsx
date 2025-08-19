@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/share/siri-technique",
   },
+  robots: "index, follow",
 };
 
 const siriSteps = [

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/share/ai-assistant-for-architects",
   },
+  robots: "index, follow",
 };
 
 const LinkComponent = ({ href, children }: { href: string, children: React.ReactNode }) => (

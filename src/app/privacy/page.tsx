@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/privacy",
   },
+  robots: "index, follow",
 };
 
 const policyPoints = [

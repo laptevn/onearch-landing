@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/licensing",
   },
+  robots: "index, follow",
 };
 
 const commitmentPoints = [

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/share/decision-characteristics",
   },
+  robots: "index, follow",
 };
 
 const characteristics = [
@@ -43,7 +44,7 @@ const characteristics = [
     {
         icon: <Sparkles className="w-8 h-8 text-primary" />,
         title: "Clear",
-        description: <>A decision should contain zero fluff and minimal text, while clearly conveying the meaning. Otherwise, it’s hard to understand and even harder to work with. Consider using the <Link href="/share/siri-technique" className="text-primary hover:underline">SIRI technique</Link>.</>,
+        description: <>A decision should contain zero fluff and minimal text, while clearly conveying the meaning. Consider using the <Link href="/share/siri-technique" className="text-primary hover:underline">SIRI technique</Link>.</>,
     }
 ];
 
