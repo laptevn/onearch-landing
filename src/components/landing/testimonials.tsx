@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useLayoutEffect, useRef, useCallback } from "react";
@@ -125,88 +126,87 @@ export default function Testimonials() {
           </h2>
         </div>
         <div
-          className="relative"
           ref={containerRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          <div
-            className="overflow-hidden"
-            style={{
-              width: carouselWidth ? `${carouselWidth}px` : "100%",
-              margin: "0 auto",
-            }}
-          >
+          <div className="flex items-center justify-center gap-4">
+            <Button
+              variant="default"
+              size="icon"
+              className="hidden rounded-full disabled:opacity-50 md:flex"
+              onClick={handlePrev}
+              disabled={!canGoPrev}
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </Button>
+
             <div
-              className="flex transition-transform duration-300 ease-in-out"
+              className="overflow-hidden"
               style={{
-                transform: `translateX(-${
-                  (currentIndex * 100) / visibleItems
-                }%)`,
+                width: carouselWidth ? `${carouselWidth}px` : "100%",
+                margin: "0 auto",
               }}
             >
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-full px-4"
-                  style={{ flexBasis: `${100 / visibleItems}%` }}
-                >
-                  <div className="flex h-full items-center gap-6 text-center lg:text-left">
-                    <Image
-                      src={testimonial.image}
-                      alt={`${testimonial.name}`}
-                      width={88}
-                      height={88}
-                      className="h-24 w-24 flex-shrink-0 rounded-full object-cover"
-                      data-ai-hint={testimonial.hint}
-                    />
-                    <div className="relative w-full max-w-md">
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rotate-45 bg-card/50 lg:left-[-12px] lg:top-8 lg:-translate-y-1/2 lg:-rotate-45"></div>
-                      <div className="relative h-full rounded-2xl bg-card/50 p-6 shadow-lg">
-                        <blockquote className="mb-4 text-lg text-muted-foreground">
-                          {testimonial.quote}
-                        </blockquote>
-                        <div>
-                          <p className="font-semibold text-foreground">
-                            {testimonial.name}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {testimonial.title}
-                          </p>
+              <div
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{
+                  transform: `translateX(-${
+                    (currentIndex * 100) / visibleItems
+                  }%)`,
+                }}
+              >
+                {testimonials.map((testimonial, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-full px-4"
+                    style={{ flexBasis: `${100 / visibleItems}%` }}
+                  >
+                    <div className="flex h-full items-center gap-6 text-center lg:text-left">
+                      <Image
+                        src={testimonial.image}
+                        alt={`${testimonial.name}`}
+                        width={88}
+                        height={88}
+                        className="h-24 w-24 flex-shrink-0 rounded-full object-cover"
+                        data-ai-hint={testimonial.hint}
+                      />
+                      <div className="relative w-full max-w-md">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rotate-45 bg-card/50 lg:left-[-12px] lg:top-8 lg:-translate-y-1/2 lg:-rotate-45"></div>
+                        <div className="relative h-full rounded-2xl bg-card/50 p-6 shadow-lg">
+                          <blockquote className="mb-4 text-lg text-muted-foreground">
+                            {testimonial.quote}
+                          </blockquote>
+                          <div>
+                            <p className="font-semibold text-foreground">
+                              {testimonial.name}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              {testimonial.title}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
+
+            <Button
+              variant="default"
+              size="icon"
+              className="hidden rounded-full disabled:opacity-50 md:flex"
+              onClick={handleNext}
+              disabled={!canGoNext}
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
           </div>
 
-          {testimonials.length > visibleItems && (
-            <>
-              <Button
-                variant="default"
-                size="icon"
-                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 hidden rounded-full disabled:opacity-50 md:flex"
-                onClick={handlePrev}
-                disabled={!canGoPrev}
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </Button>
-              <Button
-                variant="default"
-                size="icon"
-                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 hidden rounded-full disabled:opacity-50 md:flex"
-                onClick={handleNext}
-                disabled={!canGoNext}
-                aria-label="Next testimonial"
-              >
-                <ChevronRight className="h-6 w-6" />
-              </Button>
-            </>
-          )}
 
           {testimonials.length > visibleItems && (
             <div className="mt-8 flex justify-center gap-2">
