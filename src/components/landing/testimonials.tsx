@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useLayoutEffect, useRef, useCallback } from "react";
@@ -41,6 +40,7 @@ const SWIPE_THRESHOLD = 50; // px
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState(1);
+  const [carouselWidth, setCarouselWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchMove, setTouchMove] = useState<number | null>(null);
@@ -53,6 +53,7 @@ export default function Testimonials() {
         Math.floor(containerWidth / CARD_WIDTH_FOR_CALCULATION)
       );
       setVisibleItems(newVisibleItems);
+      setCarouselWidth(newVisibleItems * CARD_WIDTH_FOR_CALCULATION);
       // Adjust currentIndex if it's out of bounds after resize
       if (currentIndex + newVisibleItems > testimonials.length) {
         setCurrentIndex(Math.max(0, testimonials.length - newVisibleItems));
@@ -132,47 +133,54 @@ export default function Testimonials() {
             onTouchEnd={handleTouchEnd}
           >
             <div
-              className="flex justify-center transition-transform duration-300 ease-in-out"
               style={{
-                transform: `translateX(-${
-                  (currentIndex * 100) / visibleItems
-                }%)`,
+                width: carouselWidth ? `${carouselWidth}px` : "100%",
+                margin: "0 auto",
               }}
             >
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-full px-4"
-                  style={{ flexBasis: `${100 / visibleItems}%` }}
-                >
-                  <div className="flex h-full items-center gap-6 text-center lg:text-left">
-                    <Image
-                      src={testimonial.image}
-                      alt={`${testimonial.name}`}
-                      width={88}
-                      height={88}
-                      className="h-24 w-24 flex-shrink-0 rounded-full object-cover"
-                      data-ai-hint={testimonial.hint}
-                    />
-                    <div className="relative w-full max-w-md">
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rotate-45 bg-card/50 lg:left-[-12px] lg:top-8 lg:-translate-y-1/2 lg:-rotate-45"></div>
-                      <div className="relative h-full rounded-2xl bg-card/50 p-6 shadow-lg">
-                        <blockquote className="mb-4 text-lg text-muted-foreground">
-                          {testimonial.quote}
-                        </blockquote>
-                        <div>
-                          <p className="font-semibold text-foreground">
-                            {testimonial.name}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {testimonial.title}
-                          </p>
+              <div
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{
+                  transform: `translateX(-${
+                    (currentIndex * 100) / visibleItems
+                  }%)`,
+                }}
+              >
+                {testimonials.map((testimonial, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-full px-4"
+                    style={{ flexBasis: `${100 / visibleItems}%` }}
+                  >
+                    <div className="flex h-full items-center gap-6 text-center lg:text-left">
+                      <Image
+                        src={testimonial.image}
+                        alt={`${testimonial.name}`}
+                        width={88}
+                        height={88}
+                        className="h-24 w-24 flex-shrink-0 rounded-full object-cover"
+                        data-ai-hint={testimonial.hint}
+                      />
+                      <div className="relative w-full max-w-md">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rotate-45 bg-card/50 lg:left-[-12px] lg:top-8 lg:-translate-y-1/2 lg:-rotate-45"></div>
+                        <div className="relative h-full rounded-2xl bg-card/50 p-6 shadow-lg">
+                          <blockquote className="mb-4 text-lg text-muted-foreground">
+                            {testimonial.quote}
+                          </blockquote>
+                          <div>
+                            <p className="font-semibold text-foreground">
+                              {testimonial.name}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              {testimonial.title}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
