@@ -132,7 +132,7 @@ export default function Testimonials() {
             onTouchEnd={handleTouchEnd}
           >
             <div
-              className="flex transition-transform duration-300 ease-in-out"
+              className="flex justify-center transition-transform duration-300 ease-in-out"
               style={{
                 transform: `translateX(-${
                   (currentIndex * 100) / visibleItems
