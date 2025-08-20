@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useLayoutEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,7 +31,7 @@ const testimonials = [
       "OneArch is very convenient, especially the Review feature. Even though I’m not yet an architect, it helps me document my work and track the history of decisions as I grow into the role.",
     image: "/amal.jpeg",
     hint: "man portrait",
-  }
+  },
 ];
 
 // This is a fixed width used only for calculation, not for styling the cards.
@@ -44,12 +44,14 @@ export default function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchMove, setTouchMove] = useState<number | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
 
   const updateVisibleItems = useCallback(() => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.offsetWidth;
-      const newVisibleItems = Math.max(1, Math.floor(containerWidth / CARD_WIDTH_FOR_CALCULATION));
+      const newVisibleItems = Math.max(
+        1,
+        Math.floor(containerWidth / CARD_WIDTH_FOR_CALCULATION)
+      );
       setVisibleItems(newVisibleItems);
       // Adjust currentIndex if it's out of bounds after resize
       if (currentIndex + newVisibleItems > testimonials.length) {
@@ -58,8 +60,7 @@ export default function Testimonials() {
     }
   }, [currentIndex]);
 
-  useEffect(() => {
-    setIsMounted(true);
+  useLayoutEffect(() => {
     const observer = new ResizeObserver(() => {
       updateVisibleItems();
     });
@@ -83,7 +84,9 @@ export default function Testimonials() {
   }, []);
 
   const handleNext = useCallback(() => {
-    setCurrentIndex((prevIndex) => Math.min(testimonials.length - visibleItems, prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      Math.min(testimonials.length - visibleItems, prevIndex + 1)
+    );
   }, [visibleItems]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -108,7 +111,7 @@ export default function Testimonials() {
     setTouchStart(null);
     setTouchMove(null);
   };
-  
+
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex + visibleItems < testimonials.length;
 
@@ -121,8 +124,8 @@ export default function Testimonials() {
           </h2>
         </div>
         <div className="relative">
-          <div 
-            className="overflow-hidden" 
+          <div
+            className="overflow-hidden"
             ref={containerRef}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -130,23 +133,31 @@ export default function Testimonials() {
           >
             <div
               className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${(currentIndex / visibleItems) * 100}%)` }}
+              style={{
+                transform: `translateX(-${
+                  (currentIndex * 100) / visibleItems
+                }%)`,
+              }}
             >
-              {isMounted && testimonials.map((testimonial, index) => (
-                <div key={index} className="flex-shrink-0 w-full px-4" style={{ flexBasis: `${100 / visibleItems}%`}}>
-                  <div className="flex flex-col items-center text-center lg:flex-row lg:text-left gap-6 h-full">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-full px-4"
+                  style={{ flexBasis: `${100 / visibleItems}%` }}
+                >
+                  <div className="flex h-full items-center gap-6 text-center lg:text-left">
                     <Image
                       src={testimonial.image}
                       alt={`${testimonial.name}`}
                       width={88}
                       height={88}
-                      className="h-24 w-24 rounded-full object-cover flex-shrink-0"
+                      className="h-24 w-24 flex-shrink-0 rounded-full object-cover"
                       data-ai-hint={testimonial.hint}
                     />
-                    <div className="relative w-full">
-                       <div className="absolute -top-3 left-1/2 lg:left-[-12px] lg:top-8 transform -translate-x-1/2 lg:-translate-y-1/2 rotate-45 lg:-rotate-45 w-6 h-6 bg-card/50"></div>
-                      <div className="bg-card/50 p-6 rounded-2xl shadow-lg relative h-full">
-                        <blockquote className="text-lg text-muted-foreground mb-4">
+                    <div className="relative w-full max-w-md">
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rotate-45 bg-card/50 lg:left-[-12px] lg:top-8 lg:-translate-y-1/2 lg:-rotate-45"></div>
+                      <div className="relative h-full rounded-2xl bg-card/50 p-6 shadow-lg">
+                        <blockquote className="mb-4 text-lg text-muted-foreground">
                           {testimonial.quote}
                         </blockquote>
                         <div>
@@ -164,13 +175,13 @@ export default function Testimonials() {
               ))}
             </div>
           </div>
-          
+
           {testimonials.length > visibleItems && (
             <>
               <Button
                 variant="default"
                 size="icon"
-                className="absolute top-1/2 -translate-y-1/2 -left-4 z-10 rounded-full disabled:opacity-50 hidden md:flex"
+                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 hidden rounded-full disabled:opacity-50 md:flex"
                 onClick={handlePrev}
                 disabled={!canGoPrev}
                 aria-label="Previous testimonial"
@@ -180,7 +191,7 @@ export default function Testimonials() {
               <Button
                 variant="default"
                 size="icon"
-                className="absolute top-1/2 -translate-y-1/2 -right-4 z-10 rounded-full disabled:opacity-50 hidden md:flex"
+                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 hidden rounded-full disabled:opacity-50 md:flex"
                 onClick={handleNext}
                 disabled={!canGoNext}
                 aria-label="Next testimonial"
@@ -191,8 +202,10 @@ export default function Testimonials() {
           )}
 
           {testimonials.length > visibleItems && (
-            <div className="flex justify-center gap-2 mt-8">
-              {Array.from({ length: testimonials.length - visibleItems + 1 }).map((_, index) => (
+            <div className="mt-8 flex justify-center gap-2">
+              {Array.from({
+                length: testimonials.length - visibleItems + 1,
+              }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
