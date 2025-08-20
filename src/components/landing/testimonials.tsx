@@ -124,63 +124,62 @@ export default function Testimonials() {
             Here’s what early users are saying
           </h2>
         </div>
-        <div className="relative">
+        <div
+          className="relative"
+          ref={containerRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div
             className="overflow-hidden"
-            ref={containerRef}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+            style={{
+              width: carouselWidth ? `${carouselWidth}px` : "100%",
+              margin: "0 auto",
+            }}
           >
             <div
+              className="flex transition-transform duration-300 ease-in-out"
               style={{
-                width: carouselWidth ? `${carouselWidth}px` : "100%",
-                margin: "0 auto",
+                transform: `translateX(-${
+                  (currentIndex * 100) / visibleItems
+                }%)`,
               }}
             >
-              <div
-                className="flex transition-transform duration-300 ease-in-out"
-                style={{
-                  transform: `translateX(-${
-                    (currentIndex * 100) / visibleItems
-                  }%)`,
-                }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-full px-4"
-                    style={{ flexBasis: `${100 / visibleItems}%` }}
-                  >
-                    <div className="flex h-full items-center gap-6 text-center lg:text-left">
-                      <Image
-                        src={testimonial.image}
-                        alt={`${testimonial.name}`}
-                        width={88}
-                        height={88}
-                        className="h-24 w-24 flex-shrink-0 rounded-full object-cover"
-                        data-ai-hint={testimonial.hint}
-                      />
-                      <div className="relative w-full max-w-md">
-                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rotate-45 bg-card/50 lg:left-[-12px] lg:top-8 lg:-translate-y-1/2 lg:-rotate-45"></div>
-                        <div className="relative h-full rounded-2xl bg-card/50 p-6 shadow-lg">
-                          <blockquote className="mb-4 text-lg text-muted-foreground">
-                            {testimonial.quote}
-                          </blockquote>
-                          <div>
-                            <p className="font-semibold text-foreground">
-                              {testimonial.name}
-                            </p>
-                            <p className="text-sm text-muted-foreground">
-                              {testimonial.title}
-                            </p>
-                          </div>
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-full px-4"
+                  style={{ flexBasis: `${100 / visibleItems}%` }}
+                >
+                  <div className="flex h-full items-center gap-6 text-center lg:text-left">
+                    <Image
+                      src={testimonial.image}
+                      alt={`${testimonial.name}`}
+                      width={88}
+                      height={88}
+                      className="h-24 w-24 flex-shrink-0 rounded-full object-cover"
+                      data-ai-hint={testimonial.hint}
+                    />
+                    <div className="relative w-full max-w-md">
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rotate-45 bg-card/50 lg:left-[-12px] lg:top-8 lg:-translate-y-1/2 lg:-rotate-45"></div>
+                      <div className="relative h-full rounded-2xl bg-card/50 p-6 shadow-lg">
+                        <blockquote className="mb-4 text-lg text-muted-foreground">
+                          {testimonial.quote}
+                        </blockquote>
+                        <div>
+                          <p className="font-semibold text-foreground">
+                            {testimonial.name}
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {testimonial.title}
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
 
