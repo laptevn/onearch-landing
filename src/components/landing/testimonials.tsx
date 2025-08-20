@@ -1,9 +1,11 @@
+
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
@@ -34,50 +36,80 @@ const testimonials = [
 
 // This is a fixed width used only for calculation, not for styling the cards.
 const CARD_WIDTH_FOR_CALCULATION = 550; // px
+const SWIPE_THRESHOLD = 50; // px
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchMove, setTouchMove] = useState<number | null>(null);
 
   const updateVisibleItems = useCallback(() => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.offsetWidth;
       const newVisibleItems = Math.max(1, Math.floor(containerWidth / CARD_WIDTH_FOR_CALCULATION));
       setVisibleItems(newVisibleItems);
+      // Adjust currentIndex if it's out of bounds after resize
       if (currentIndex + newVisibleItems > testimonials.length) {
         setCurrentIndex(Math.max(0, testimonials.length - newVisibleItems));
       }
     }
-  }, [currentIndex]);
+  }, [currentIndex]); // Only run when currentIndex changes might affect the logic
 
   useEffect(() => {
-    const resizeObserver = new ResizeObserver(() => {
+    const observer = new ResizeObserver(() => {
       updateVisibleItems();
     });
 
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current);
+    const currentContainer = containerRef.current;
+    if (currentContainer) {
+      observer.observe(currentContainer);
     }
     
     updateVisibleItems();
 
     return () => {
-      if (containerRef.current) {
-        resizeObserver.unobserve(containerRef.current);
+      if (currentContainer) {
+        observer.unobserve(currentContainer);
       }
     };
   }, [updateVisibleItems]);
 
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prevIndex) => Math.max(0, prevIndex - 1));
+  }, []);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => Math.max(0, prevIndex - visibleItems));
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prevIndex) => Math.min(testimonials.length - visibleItems, prevIndex + 1));
+  }, [visibleItems]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+    setTouchMove(e.targetTouches[0].clientX);
   };
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => Math.min(testimonials.length - visibleItems, prevIndex + visibleItems));
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchMove(e.targetTouches[0].clientX);
   };
 
+  const handleTouchEnd = () => {
+    if (touchStart === null || touchMove === null) {
+      return;
+    }
+    const diff = touchStart - touchMove;
+    if (diff > SWIPE_THRESHOLD) {
+      handleNext();
+    } else if (diff < -SWIPE_THRESHOLD) {
+      handlePrev();
+    }
+    setTouchStart(null);
+    setTouchMove(null);
+  };
+
+  const totalPages = Math.ceil(testimonials.length / 1);
+  const currentPage = Math.floor(currentIndex / 1);
+  
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex + visibleItems < testimonials.length;
 
@@ -90,7 +122,13 @@ export default function Testimonials() {
           </h2>
         </div>
         <div className="relative">
-          <div className="overflow-hidden" ref={containerRef}>
+          <div 
+            className="overflow-hidden" 
+            ref={containerRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               className="flex transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(-${(currentIndex / visibleItems) * 100}%)` }}
@@ -107,7 +145,7 @@ export default function Testimonials() {
                       data-ai-hint={testimonial.hint}
                     />
                     <div className="relative w-full">
-                      <div className="absolute -top-3 left-1/2 lg:left-[-12px] lg:top-8 transform -translate-x-1/2 lg:-translate-y-1/2 rotate-45 lg:-rotate-45 w-6 h-6 bg-card/50"></div>
+                       <div className="absolute -top-3 left-1/2 lg:left-[-12px] lg:top-8 transform -translate-x-1/2 lg:-translate-y-1/2 rotate-45 lg:-rotate-45 w-6 h-6 bg-card/50"></div>
                       <div className="bg-card/50 p-6 rounded-2xl shadow-lg relative h-full">
                         <blockquote className="text-lg text-muted-foreground mb-4">
                           {testimonial.quote}
@@ -131,9 +169,9 @@ export default function Testimonials() {
           {testimonials.length > visibleItems && (
             <>
               <Button
-                variant="outline"
+                variant="default"
                 size="icon"
-                className="absolute top-1/2 -translate-y-1/2 left-0 z-10 rounded-full disabled:opacity-50"
+                className="absolute top-1/2 -translate-y-1/2 -left-4 z-10 rounded-full disabled:opacity-50 hidden md:flex"
                 onClick={handlePrev}
                 disabled={!canGoPrev}
                 aria-label="Previous testimonial"
@@ -141,9 +179,9 @@ export default function Testimonials() {
                 <ChevronLeft className="h-6 w-6" />
               </Button>
               <Button
-                variant="outline"
+                variant="default"
                 size="icon"
-                className="absolute top-1/2 -translate-y-1/2 right-0 z-10 rounded-full disabled:opacity-50"
+                className="absolute top-1/2 -translate-y-1/2 -right-4 z-10 rounded-full disabled:opacity-50 hidden md:flex"
                 onClick={handleNext}
                 disabled={!canGoNext}
                 aria-label="Next testimonial"
@@ -151,6 +189,22 @@ export default function Testimonials() {
                 <ChevronRight className="h-6 w-6" />
               </Button>
             </>
+          )}
+
+          {testimonials.length > visibleItems && (
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: testimonials.length - visibleItems + 1 }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={cn(
+                    "h-2 w-2 rounded-full transition-colors",
+                    currentIndex === index ? "bg-primary" : "bg-muted"
+                  )}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>
