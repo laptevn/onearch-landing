@@ -44,6 +44,7 @@ export default function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchMove, setTouchMove] = useState<number | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   const updateVisibleItems = useCallback(() => {
     if (containerRef.current) {
@@ -55,9 +56,10 @@ export default function Testimonials() {
         setCurrentIndex(Math.max(0, testimonials.length - newVisibleItems));
       }
     }
-  }, [currentIndex]); // Only run when currentIndex changes might affect the logic
+  }, [currentIndex]);
 
   useEffect(() => {
+    setIsMounted(true);
     const observer = new ResizeObserver(() => {
       updateVisibleItems();
     });
@@ -106,9 +108,6 @@ export default function Testimonials() {
     setTouchStart(null);
     setTouchMove(null);
   };
-
-  const totalPages = Math.ceil(testimonials.length / 1);
-  const currentPage = Math.floor(currentIndex / 1);
   
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex + visibleItems < testimonials.length;
@@ -133,7 +132,7 @@ export default function Testimonials() {
               className="flex transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(-${(currentIndex / visibleItems) * 100}%)` }}
             >
-              {testimonials.map((testimonial, index) => (
+              {isMounted && testimonials.map((testimonial, index) => (
                 <div key={index} className="flex-shrink-0 w-full px-4" style={{ flexBasis: `${100 / visibleItems}%`}}>
                   <div className="flex flex-col items-center text-center lg:flex-row lg:text-left gap-6 h-full">
                     <Image
