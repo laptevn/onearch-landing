@@ -199,7 +199,7 @@ export default function Testimonials() {
                   onClick={() => setCurrentIndex(index)}
                   className={cn(
                     "h-2 w-2 rounded-full transition-colors",
-                    currentIndex === index ? "bg-primary" : "bg-muted"
+                    currentIndex === index ? "bg-primary" : "bg-primary/20"
                   )}
                   aria-label={`Go to slide ${index + 1}`}
                 />
