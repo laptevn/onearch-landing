@@ -6,6 +6,8 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
@@ -34,46 +36,38 @@ const testimonials = [
   },
 ];
 
-// This is a fixed width used only for calculation, not for styling the cards.
-const CARD_WIDTH_FOR_CALCULATION = 550; // px
-const SWIPE_THRESHOLD = 50; // px
+const CARD_WIDTH_FOR_CALCULATION = 550;
+const SWIPE_THRESHOLD = 50;
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState(1);
-  const [carouselWidth, setCarouselWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchMove, setTouchMove] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   const updateVisibleItems = useCallback(() => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.offsetWidth;
-      const newVisibleItems = Math.max(
+      const newVisibleItems = isMobile ? 1 : Math.max(
         1,
         Math.floor(containerWidth / CARD_WIDTH_FOR_CALCULATION)
       );
       setVisibleItems(newVisibleItems);
-      setCarouselWidth(newVisibleItems * CARD_WIDTH_FOR_CALCULATION);
-      // Adjust currentIndex if it's out of bounds after resize
       if (currentIndex + newVisibleItems > testimonials.length) {
         setCurrentIndex(Math.max(0, testimonials.length - newVisibleItems));
       }
     }
-  }, [currentIndex]);
+  }, [currentIndex, isMobile]);
 
   useLayoutEffect(() => {
-    const observer = new ResizeObserver(() => {
-      updateVisibleItems();
-    });
-
+    const observer = new ResizeObserver(updateVisibleItems);
     const currentContainer = containerRef.current;
     if (currentContainer) {
       observer.observe(currentContainer);
     }
-    
     updateVisibleItems();
-
     return () => {
       if (currentContainer) {
         observer.unobserve(currentContainer);
@@ -92,16 +86,18 @@ export default function Testimonials() {
   }, [visibleItems]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
+    if (!isMobile) return;
     setTouchStart(e.targetTouches[0].clientX);
     setTouchMove(e.targetTouches[0].clientX);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isMobile) return;
     setTouchMove(e.targetTouches[0].clientX);
   };
 
   const handleTouchEnd = () => {
-    if (touchStart === null || touchMove === null) {
+    if (!isMobile || touchStart === null || touchMove === null) {
       return;
     }
     const diff = touchStart - touchMove;
@@ -125,46 +121,63 @@ export default function Testimonials() {
             Here’s what early users are saying
           </h2>
         </div>
-        <div
-          ref={containerRef}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div className="flex items-center justify-center gap-4">
-            <Button
-              variant="default"
-              size="icon"
-              className="hidden rounded-full disabled:opacity-50 md:flex"
-              onClick={handlePrev}
-              disabled={!canGoPrev}
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
+        <div className="flex items-center justify-center gap-2">
+          <Button
+            variant="default"
+            size="icon"
+            className="hidden rounded-full disabled:opacity-50 md:flex"
+            onClick={handlePrev}
+            disabled={!canGoPrev}
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
 
+          <div
+            ref={containerRef}
+            className="overflow-hidden w-full"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
-              className="overflow-hidden"
+              className="flex transition-transform duration-300 ease-in-out"
               style={{
-                width: carouselWidth ? `${carouselWidth}px` : "100%",
-                margin: "0 auto",
+                transform: `translateX(-${(currentIndex * 100) / visibleItems}%)`,
               }}
             >
-              <div
-                className="flex transition-transform duration-300 ease-in-out"
-                style={{
-                  transform: `translateX(-${
-                    (currentIndex * 100) / visibleItems
-                  }%)`,
-                }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-full px-4"
-                    style={{ flexBasis: `${100 / visibleItems}%` }}
-                  >
-                    <div className="flex h-full items-center gap-6 text-center lg:text-left">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-full p-4"
+                  style={{ flexBasis: `${100 / visibleItems}%` }}
+                >
+                  {isMobile ? (
+                     <Card className="h-full bg-card/50 shadow-lg p-6">
+                        <CardContent className="p-0 flex flex-col items-center text-center gap-4">
+                            <blockquote className="text-lg text-muted-foreground">
+                                {testimonial.quote}
+                            </blockquote>
+                            <div className="mt-2">
+                                <p className="font-semibold text-foreground">
+                                {testimonial.name}
+                                </p>
+                                <p className="text-sm text-muted-foreground">
+                                {testimonial.title}
+                                </p>
+                            </div>
+                             <Image
+                                src={testimonial.image}
+                                alt={`${testimonial.name}`}
+                                width={80}
+                                height={80}
+                                className="h-20 w-20 rounded-full object-cover mt-2"
+                                data-ai-hint={testimonial.hint}
+                            />
+                        </CardContent>
+                    </Card>
+                  ) : (
+                    <div className="flex h-full items-center justify-center gap-6 text-center lg:text-left">
                       <Image
                         src={testimonial.image}
                         alt={`${testimonial.name}`}
@@ -190,42 +203,41 @@ export default function Testimonials() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <Button
-              variant="default"
-              size="icon"
-              className="hidden rounded-full disabled:opacity-50 md:flex"
-              onClick={handleNext}
-              disabled={!canGoNext}
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
-          </div>
-
-
-          {testimonials.length > visibleItems && (
-            <div className="mt-8 flex justify-center gap-2">
-              {Array.from({
-                length: testimonials.length - visibleItems + 1,
-              }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={cn(
-                    "h-2 w-2 rounded-full transition-colors",
-                    currentIndex === index ? "bg-primary" : "bg-primary/40"
                   )}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
+                </div>
               ))}
             </div>
-          )}
+          </div>
+
+          <Button
+            variant="default"
+            size="icon"
+            className="hidden rounded-full disabled:opacity-50 md:flex"
+            onClick={handleNext}
+            disabled={!canGoNext}
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </Button>
         </div>
+
+        {testimonials.length > visibleItems && (
+          <div className="mt-8 flex justify-center gap-2">
+            {Array.from({
+              length: testimonials.length - visibleItems + 1,
+            }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={cn(
+                  "h-2 w-2 rounded-full transition-colors",
+                  currentIndex === index ? "bg-primary" : "bg-primary/40"
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
