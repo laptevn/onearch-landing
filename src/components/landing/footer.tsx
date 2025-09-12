@@ -46,6 +46,11 @@ export default function Footer() {
                     Decision Characteristics
                   </Link>
                 </li>
+                <li>
+                  <a href="/share/ai-in-architecture-russian.pdf" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                    AI in architecture. Practical view.
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
